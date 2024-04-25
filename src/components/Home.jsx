@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { TbMathSymbols } from "react-icons/tb";
 
 function Home() {
@@ -11,15 +11,15 @@ function Home() {
 
 const styles = {
   container: {
-    backgroundColor: '#242424',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '90vh', 
+    backgroundColor: "#242424",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "90vh",
   },
   icon: {
-    fontSize: 100, 
-    color: '#E3E3E3', 
+    fontSize: 100,
+    color: "#E3E3E3",
   },
 };
 

@@ -95,14 +95,12 @@ function Uncertainty() {
       parseFloat(porcentajeRealismoValue)
     );
 
-
     setResultados(resultadosGenerados);
     setCriterios(true);
 
     document.getElementById(`porcentaje-favorable`).value = null;
     document.getElementById(`porcentaje-no-favorable`).value = null;
     document.getElementById(`porcentaje-realismo`).value = null;
-
   };
 
   return (
@@ -211,7 +209,7 @@ function Uncertainty() {
               GENERAR
             </Button>
           </Box>
-          
+
           {resultados && <UncertaintyTable data={resultados} />}
         </Card>
       </Container>

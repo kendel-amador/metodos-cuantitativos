@@ -18,15 +18,14 @@ function Nature() {
   const numberOfCases = 3;
   const cases = Array.from({ length: numberOfCases }, (_, i) => i + 1);
   const [datos, setDatos] = useState([]);
-  const [costosCalculados, setCostosCalculados] = useState(false); 
-
+  const [costosCalculados, setCostosCalculados] = useState(false);
 
   const handleGenerate = () => {
     calcularCostos(datos, obtenerCosteDiario());
     segundaTabla(calcularCostos(datos, obtenerCosteDiario()));
-    setCostosCalculados(true); 
+    setCostosCalculados(true);
   };
- 
+
   function obtenerCosteDiario() {
     const costeDiario = document.getElementById("coste-diario").value;
     return costeDiario;
@@ -35,17 +34,19 @@ function Nature() {
   const limpiarCampos = () => {
     for (let i = 0; i < numberOfCases; i++) {
       const casoIndex = i + 1;
-  
+
       document.getElementById(`costo-inicial-caso-${casoIndex}`).value = null;
       document.getElementById(`costo-adicional-caso-${casoIndex}`).value = null;
       document.getElementById(`duracion-caso-${casoIndex}`).value = null;
       document.getElementById(`nombre-1`).value = null;
-      document.getElementById(`porcentaje-costo-inicial-caso-${casoIndex}`).value = null;
-      document.getElementById(`porcentaje-costo-adicional-caso-${casoIndex}`).value = null;
-
+      document.getElementById(
+        `porcentaje-costo-inicial-caso-${casoIndex}`
+      ).value = null;
+      document.getElementById(
+        `porcentaje-costo-adicional-caso-${casoIndex}`
+      ).value = null;
     }
   };
-
 
   const handleSave = () => {
     const newDatos = [];
@@ -63,35 +64,35 @@ function Nature() {
         `duracion-caso-${casoIndex}`
       ).value;
 
-      const estado = document.getElementById(
-        `estado-${casoIndex}`
-      ).value;
+      const estado = document.getElementById(`estado-${casoIndex}`).value;
 
       const nombre = document.getElementById(`nombre-1`).value;
 
-      const porcentajeCostoInicial = document.getElementById(`porcentaje-costo-inicial-caso-${casoIndex}`).value;
-      const porcentajeCostoAdicional = document.getElementById(`porcentaje-costo-adicional-caso-${casoIndex}`).value;
+      const porcentajeCostoInicial = document.getElementById(
+        `porcentaje-costo-inicial-caso-${casoIndex}`
+      ).value;
+      const porcentajeCostoAdicional = document.getElementById(
+        `porcentaje-costo-adicional-caso-${casoIndex}`
+      ).value;
 
-        let costoInicialFinal = parseInt(eval(costoInicial));
-        if (porcentajeCostoInicial !== 0) {
-          if (porcentajeCostoInicial > 1) {
-            costoInicialFinal *= porcentajeCostoInicial; 
-          } else if (porcentajeCostoInicial < 1) {
-            costoInicialFinal -= (costoInicialFinal * porcentajeCostoInicial); 
-            
-          }
+      let costoInicialFinal = parseInt(eval(costoInicial));
+      if (porcentajeCostoInicial !== 0) {
+        if (porcentajeCostoInicial > 1) {
+          costoInicialFinal *= porcentajeCostoInicial;
+        } else if (porcentajeCostoInicial < 1) {
+          costoInicialFinal -= costoInicialFinal * porcentajeCostoInicial;
         }
-  
-        let costoAdicionalFinal = parseInt(eval(costoAdicional));
-        console.log(costoAdicionalFinal)
-        if (porcentajeCostoAdicional !== 0) {
-          if (porcentajeCostoAdicional > 1) {
-            costoAdicionalFinal *= porcentajeCostoAdicional; 
-          } else if (porcentajeCostoAdicional < 1) {
-            costoAdicionalFinal -= (costoAdicionalFinal * porcentajeCostoAdicional); 
-     
-          }
+      }
+
+      let costoAdicionalFinal = parseInt(eval(costoAdicional));
+      console.log(costoAdicionalFinal);
+      if (porcentajeCostoAdicional !== 0) {
+        if (porcentajeCostoAdicional > 1) {
+          costoAdicionalFinal *= porcentajeCostoAdicional;
+        } else if (porcentajeCostoAdicional < 1) {
+          costoAdicionalFinal -= costoAdicionalFinal * porcentajeCostoAdicional;
         }
+      }
 
       newDatos.push({
         nombre: nombre,
@@ -101,7 +102,6 @@ function Nature() {
         duracion: parseInt(duracion),
       });
 
-          
       if ((i + 1) % 3 === 0) {
         setDatos((prevDatos) => [...prevDatos, ...newDatos]);
 
@@ -198,13 +198,18 @@ function Nature() {
               variant="outlined"
               sx={{ border: "1px solid #3E3E3E", color: "#E3E3E3" }}
               onClick={handleGenerate}
-              
             >
               GENERAR
             </Button>
           </Box>
-          {costosCalculados && <NatureTable data={calcularCostos(datos, obtenerCosteDiario())} />}
-          {costosCalculados && <NatureTableTwo data={segundaTabla(calcularCostos(datos, obtenerCosteDiario()))} />}
+          {costosCalculados && (
+            <NatureTable data={calcularCostos(datos, obtenerCosteDiario())} />
+          )}
+          {costosCalculados && (
+            <NatureTableTwo
+              data={segundaTabla(calcularCostos(datos, obtenerCosteDiario()))}
+            />
+          )}
         </Card>
       </Container>
     </Box>

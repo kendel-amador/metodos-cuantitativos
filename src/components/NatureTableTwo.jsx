@@ -1,21 +1,20 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
 
 export default function NatureTableTwo({ data }) {
-
   // Define estilos personalizados para TableCell y TableHead
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    backgroundColor: '#171717', 
-    color: '#E3E3E3', 
-    borderColor: '#3E3E3E',
-    fontWeight: 'bold'
+    backgroundColor: "#171717",
+    color: "#E3E3E3",
+    borderColor: "#3E3E3E",
+    fontWeight: "bold",
   }));
 
   return (
@@ -25,7 +24,9 @@ export default function NatureTableTwo({ data }) {
           <TableRow>
             <StyledTableCell />
             {Object.keys(data.OPTIMISTA).map((nombre, index) => (
-              <StyledTableCell key={index} align="center">{nombre}</StyledTableCell>
+              <StyledTableCell key={index} align="center">
+                {nombre}
+              </StyledTableCell>
             ))}
           </TableRow>
         </TableHead>
@@ -36,7 +37,9 @@ export default function NatureTableTwo({ data }) {
                 {tipo}
               </StyledTableCell>
               {Object.values(data[tipo]).map((valor, index) => (
-                <StyledTableCell key={index} align="center">{valor}</StyledTableCell>
+                <StyledTableCell key={index} align="center">
+                  {valor}
+                </StyledTableCell>
               ))}
             </TableRow>
           ))}

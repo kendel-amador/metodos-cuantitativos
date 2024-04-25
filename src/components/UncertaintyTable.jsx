@@ -14,7 +14,7 @@ export default function UncertaintyTable({ data }) {
     color: "#E3E3E3",
     borderColor: "#3E3E3E",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   }));
 
   return (
@@ -43,8 +43,12 @@ export default function UncertaintyTable({ data }) {
               <StyledTableCell>{valores["MAXIMIN FILA"]}</StyledTableCell>
               <StyledTableCell>{valores.REALISMO}</StyledTableCell>
               <StyledTableCell>{valores.LAPLACE}</StyledTableCell>
-              <StyledTableCell>{valores["ARREPENTIMIENTO FAVORABLE"]}</StyledTableCell>
-              <StyledTableCell>{valores["ARREPENTIMIENTO NO FAVORABLE"]}</StyledTableCell>
+              <StyledTableCell>
+                {valores["ARREPENTIMIENTO FAVORABLE"]}
+              </StyledTableCell>
+              <StyledTableCell>
+                {valores["ARREPENTIMIENTO NO FAVORABLE"]}
+              </StyledTableCell>
             </TableRow>
           ))}
         </TableBody>
