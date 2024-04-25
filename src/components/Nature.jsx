@@ -72,7 +72,7 @@ function Nature() {
       const porcentajeCostoInicial = document.getElementById(`porcentaje-costo-inicial-caso-${casoIndex}`).value;
       const porcentajeCostoAdicional = document.getElementById(`porcentaje-costo-adicional-caso-${casoIndex}`).value;
 
-        let costoInicialFinal = parseInt(costoInicial);
+        let costoInicialFinal = parseInt(eval(costoInicial));
         if (porcentajeCostoInicial !== 0) {
           if (porcentajeCostoInicial > 1) {
             costoInicialFinal *= porcentajeCostoInicial; 
@@ -82,7 +82,8 @@ function Nature() {
           }
         }
   
-        let costoAdicionalFinal = parseInt(costoAdicional);
+        let costoAdicionalFinal = parseInt(eval(costoAdicional));
+        console.log(costoAdicionalFinal)
         if (porcentajeCostoAdicional !== 0) {
           if (porcentajeCostoAdicional > 1) {
             costoAdicionalFinal *= porcentajeCostoAdicional; 
