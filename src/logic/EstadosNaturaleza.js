@@ -3,7 +3,7 @@ function calcularCostoTotal(
   costoAdicional,
   duracion,
   costoDiario
-) {
+) { 
   let costoTotal = costoInicial + (costoAdicional ? costoAdicional : 0);
   costoTotal += duracion * costoDiario;
   return costoTotal;
